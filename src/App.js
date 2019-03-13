@@ -6,11 +6,12 @@ class App extends Component {
   constructor(){
     super();
     this.state = {
-      arriba:'Ora ora...',
-      abajo:'que se atora!',
+      arriba:'Achis achis',
+      abajo:'los mariachis',
     }
     this.handleFraseTop = this.handleFraseTop.bind(this);
     this.handleFraseBottom = this.handleFraseBottom.bind(this);
+    this.resetFrases = this.resetFrases.bind(this);
   }
 
   handleFraseTop(e){
@@ -25,9 +26,18 @@ class App extends Component {
     });
   }
 
+  resetFrases(e){
+    e.preventDeafult();
+    this.setState({
+      arriba:'Achis achis',
+      abajo:'los mariachis',
+    });
+  }
+
   render() {
     return (
       <div className="App">
+        <div>Kevin Barrera Hernández - A01274402 - Laboratorio 2</div>
         <div className="formulario">
           <form>
             <input
@@ -42,6 +52,9 @@ class App extends Component {
               value={this.state.abajo}
               onChange = {this.handleFraseBottom}  
             />
+            <button onClick={this.resetFrases}>
+              Reset
+            </button>
           </form>
         </div>
         <div className="DogeMeme">
